@@ -106,15 +106,12 @@
     const productList = document.getElementById('product-list');
     const products = categories[category];
 
-    // Очистіть список товарів перед відображенням нових
     productList.innerHTML = '';
 
-    // Відобразити товари у списку
     products.forEach(product => {
         const listItem = document.createElement('li');
         listItem.textContent = `${product.name} - ${product.price} грн`;
 
-        // Додаємо івентлисенер для обробки кліку
         listItem.addEventListener('click', function() {
             showProductInfo(product);
         });
@@ -137,7 +134,6 @@
     function submitOrderForm(event) {
     event.preventDefault();
 
-    // Отримання значень з форми
     const form = event.target;
     const fullName = form.elements.fullName.value;
     const city = form.elements.city.value;
@@ -146,13 +142,11 @@
     const quantity = form.elements.quantity.value;
     const comment = form.elements.comment.value;
 
-    // Перевірка обов'язкових полів
     if (!fullName || !city || !deliveryPoint || !paymentMethod || !quantity) {
         alert('Будь ласка, заповніть всі обов\'язкові поля форми.');
         return;
     }
 
-    // Відображення інформації про замовлення на сторінці
     const orderDetails = `
         <strong>ПІБ покупця:</strong> ${fullName}<br>
         <strong>Місто:</strong> ${city}<br>
